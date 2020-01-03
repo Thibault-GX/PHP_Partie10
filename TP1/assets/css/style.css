@@ -1,0 +1,15 @@
+#personnalDatas {
+    background-color: rgba(200, 220, 0, 0.9);
+    padding: 2rem;
+    border-radius: 10px;
+}
+#skillAndProfessionalDatas {
+    background-color: rgba(200, 180, 0, 0.9);
+    padding: 2rem;
+    border-radius: 10px;
+}
+#personnalStories {
+    background-color: rgba(200, 140, 0, 0.9);
+    padding: 2rem;
+    border-radius: 10px;
+}
