@@ -30,19 +30,19 @@ include 'countriesArray.php';
         <div class="w-100 p-1"></div>
         <label for="birthCountry"><span class="text-danger">*</span> Votre pays de naissance :</label>
         <div class="w-100 p-1"></div>
-    <select name="country">
-        <option value="">Sélectionnez</option>
-        <?php
-        foreach ($countries as $countryId => $country) {
-            if ($country == 'France') {
-                echo '<option value="' . $countryId . '" selected>' . $country . '</option>';
-            } else {
-                echo '<option value="' . $countryId . '">' . $country . '</option>';
+        <select name="country">
+            <option value="">Sélectionnez</option>
+            <?php
+            foreach ($countries as $countryId => $country) {
+                if ($country == 'France') {
+                    echo '<option value="' . $countryId . '" selected>' . $country . '</option>';
+                } else {
+                    echo '<option value="' . $countryId . '">' . $country . '</option>';
+                }
             }
-        }
-        ?>
-    </select>
-    <div class="w-100 p-1"></div>
+            ?>
+        </select>
+        <div class="w-100 p-1"></div>
         <label><span class="text-danger">*</span> Votre nationalité :</label>
         <div class="w-100 p-1"></div>
         <input type="radio" id="french" name="nationality" value="french">
@@ -62,6 +62,8 @@ include 'countriesArray.php';
         <label for="phone"><span class="text-danger">*</span> Votre numéro de téléphone :</label>
         <div class="w-100 p-1"></div>
         <input id="phone" name="phone" required>
+        <div class="w-100 p-4"></div>
+        <div class="d-flex justify-content-end"><button id="fromStep1ToStep2" type="button" class="btn btn-dark">Etape suivante ></button></div>
     </div>
     <div class="w-100 p-1"></div>
     <div id="skillAndProfessionalDatas">
@@ -88,6 +90,8 @@ include 'countriesArray.php';
         <label for="codecademyLink"><span class="text-danger">*</span> Lien vers votre profil Codecademy :</label>
         <div class="w-100 p-1"></div>
         <input id="codecademyLink" name="codecademyLink" required>
+        <div class="w-100 p-4"></div>
+        <div class="d-flex justify-content-between"><button id="fromStep2ToStep1" type="button" class="btn btn-dark">< Etape précédente</button><button id="fromStep2ToStep3" type="button" class="btn btn-dark">Etape suivante ></button></div>
     </div>
     <div class="w-100 p-1"></div>
     <div id="personnalStories">
@@ -111,9 +115,10 @@ include 'countriesArray.php';
             <label for="no">Non</label>
         </div>
         <div class="w-100 p-1"></div>
+        <div class="d-flex justify-content-center"><input type="submit" class="btn btn-success w-50 font-weight-bold" value="Je m'inscris !"/></div>
+        <div class="w-100 p-4"></div>
+        <button id="fromStep3ToStep2" type="button" class="btn btn-dark">< Etape précédente</button></div>
     </div>
-    <div class="w-100 p-1"></div>
-    <input type="submit" value="Let's a-go !"/>
 </form>
 <?php
 include '../footer.php';

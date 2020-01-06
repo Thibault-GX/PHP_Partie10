@@ -1,17 +1,23 @@
 #personnalDatas {
     background-color: rgba(200, 220, 0, 0.9);
+    width: 70vw;
     padding: 2rem;
     border-radius: 10px;
+    border: 3px outset #23272b;
 }
 #skillAndProfessionalDatas {
     background-color: rgba(200, 180, 0, 0.9);
+    width: 70vw;
     padding: 2rem;
     border-radius: 10px;
+    border: 3px outset #23272b;
 }
 #personnalStories {
     background-color: rgba(200, 140, 0, 0.9);
+    width: 70vw;
     padding: 2rem;
     border-radius: 10px;
+    border: 3px outset #23272b;
 }
 .partsTitleSize {
     font-size: 1.5rem;
