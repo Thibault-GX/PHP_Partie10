@@ -2,12 +2,16 @@
 $partNb = 10;
 $exerciseNb = 'TP 2';
 include '../header.php';
+// Initialize a default value for all future informations collected through the form.
 $firstName = $lastName = $age = $society = $gender = '';
 $formSubmitted = false;
+// Regex for all kinds of names (must include at least one word).
 $regexName = "/^[A-Za-zéÉ][A-Za-záàâäãåçéèêëíìîïñóòôöõúùûüýÿæœ]+((-| )[A-Za-záàâäãåçéèêëíìîïñóòôöõúùûüýÿæœ]+)?$/";
 $errors = [];
+// If the server register a post request
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $formSubmitted = true;
+    // Series of controls to verify if all the informations are acquainted as asked and notify user if something went wrong.
     $firstName = trim(filter_input(INPUT_POST, 'firstName', FILTER_SANITIZE_STRING));
     if (empty($firstName)) {
         $errors['firstName'] = 'Veuillez renseigner le prénom.';
@@ -18,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (empty($gender)) {
         $errors['gender'] = 'Veuillez renseigner votre civilité.';
     } elseif (!preg_match('/woman|man/', $gender)) {
-        $errors['gender'] = 'Votre prénom contient des caractères non autorisés !';
+        $errors['gender'] = 'Votre civilité ne correspond à aucunes des propositions du formulaire !';
     }
     //contôle du prénom
     $lastName = trim(filter_input(INPUT_POST, 'lastName', FILTER_SANITIZE_STRING));
@@ -44,6 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 ?>
+<!-- The values will take the ones registered by the user if that can apply. By default, they will be considered as '', as written upper in the php part. -->
 <form method="post" action="index.php" class="formParts" novalidate>
     <div class="form-group row">
         <label for="gender" class="col-form-label col-2">Civilité :</label>
@@ -83,8 +88,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <div class="form-group row justify-content-center">
         <input type="submit" value="Inscription" class="btn btn-success">
     </div>
-</form>
-<?php if ($formSubmitted && count($errors) == 0) { ?>
+</form> 
+<?php
+// If the $formSubmitted is true and that no errors remain, display the informations registered by the user.
+if ($formSubmitted && count($errors) == 0) { ?>
     <p><?= $gender ?></p>
     <p><?= $lastName ?></p>
     <p><?= $firstName ?></p>
